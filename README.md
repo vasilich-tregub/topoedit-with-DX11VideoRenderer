@@ -22,6 +22,6 @@ registration. One can easily return to CoCreateInstance, if necessary.
 The DX11VideoRenderer code is 'as is' in the Microsoft repository, although it might 
 be useful to remove a line MFTRegister(CLSID_DX11VideoRenderer, ...) in the 
 DllRegisterServer method. This line can only trick the user in attempting to add 
-a DX11VideoRenderer option which appears in the Other category of MFT transforms of the 
+an DX11VideoRenderer option which appears in the Other category of MFT transforms of the 
 Add Transform... dialog of the Topology menu after registration, which is 
 impossible, because DX11VideoRenderer is not an MF transform.
