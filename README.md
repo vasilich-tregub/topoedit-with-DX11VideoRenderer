@@ -1,6 +1,6 @@
 # topoedit-with-DX11VideoRenderer
 A README section Run the Sample on a DirectX video rendering sample, DX11VideoRenderer, 
-from the Microsoft repository "Windows-classic-samples, promises the appearance of 
+from the Microsoft repository "Windows-classic-samples", promises the appearance of 
 the menu line "Add DX11 Video Renderer" on the Topology menu of the topoedit application 
 after registration of the DX11VideoRenderer.dll. Not only I do not see this menu line, I 
 fail to find the code in the topoedit sample of the Microsoft repository 
