@@ -37,6 +37,6 @@ easily return to using CoCreateInstance methods, if need be.
 The DX11VideoRenderer code is added 'as is' from the Microsoft repository, 
 only a call to 
 MFTRegister(CLSID_DX11VideoRenderer, MFT_CATEGORY_OTHER, L"DX11 Video Renderer", ...) 
-in the DllRegisterServer method is removed. This deceptive registration has no other 
-purpose as only to trick the user into believing that the video renderer can be added 
-as a MF transform.
+in the DllRegisterServer method is removed. This misleading registration has no other 
+purpose as only to trick the user into believing that the video renderer can be 
+instantiated as a MF transform.
