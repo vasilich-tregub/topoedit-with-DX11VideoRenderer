@@ -232,7 +232,7 @@ STDAPI DllRegisterServer(void)
             break;
         }
 
-        hr = MFTRegister(
+        /*hr = MFTRegister(
             CLSID_DX11VideoRenderer,    // CLSID
             MFT_CATEGORY_OTHER,         // Category
             L"DX11 Video Renderer",     // Friendly name
@@ -242,7 +242,7 @@ STDAPI DllRegisterServer(void)
             0,
             NULL,
             NULL
-            );
+            );*/ // This registration tries to trick user into believing that DX11VideoRenderer is an MF transform
     }
     while (FALSE);
 
