@@ -1,4 +1,5 @@
 # topoedit-with-DX11VideoRenderer
+
 This is basically a branch of the Microsoft Windows-classic-samples' topoedit sample,
 with a DirectX video rendering sample, DX11VideoRenderer, added to the solution.
 
@@ -20,19 +21,22 @@ To be able to add the DX11VideoRenderer to a list of video renderers available t
 topoedit (which list, in the Microsoft topoedit sample, is limited only to EVR), 
 I added the necessary code to the topoedit sample. Mainly, I replicated the code 
 used to add the EVR sink node. The Add EVR pipeline starts with the method 
-OnAddEVRSink call and further on up to the CTedVideoOutputNode::Init(...) call, 
-with necessary adjustments, in the CTedVideoOutputNode::InitDX11(...) methods, made 
-to enable use of DX11VideoRenderer. The method CTedVideoOutputNode::Init(...) that 
-works in the EVR instantiation route uses a MFCreateVideoRendererActivate method 
-(<mfidl.h> header); a DX11VideoRenderer object is activated with an ActivateObject 
-method of the IMFActivate object that we create with the 
-CreateDX11VideoRendererActivate method exported from DX11VideoRenderer.dll. 
+OnAddEVRSink call and further on up to the CTedVideoOutputNode::Init(...) call. 
+Adjustments made in the CTedVideoOutputNode::InitDX11(...) methods enable the 
+topoedit application to use the DX11VideoRenderer sink: the method 
+CTedVideoOutputNode::Init(...), that works in the EVR instantiation route, uses 
+a MFCreateVideoRendererActivate method (<mfidl.h> header); 
+a DX11VideoRenderer object is activated with an ActivateObject method of the 
+IMFActivate object that we create with the CreateDX11VideoRendererActivate method 
+exported from DX11VideoRenderer.dll. 
+
 To simplify the use of DX11VideoRenderer.dll, I added the DX11VideoRenderer project 
-to my solution and use DX11VideoRenderer.dll without registration. One can easily 
-return to using CoCreateInstance methods, if need be.
+code to my solution and use DX11VideoRenderer.dll without registration. One can 
+easily return to using CoCreateInstance methods, if need be.
 
 The DX11VideoRenderer code is added 'as is' from the Microsoft repository, 
 only a call to 
 MFTRegister(CLSID_DX11VideoRenderer, MFT_CATEGORY_OTHER, L"DX11 Video Renderer", ...) 
-in the DllRegisterServer method is removed. This deceptive registration only tricks 
-the user into believing that the video renderer can be added as a MF transform.
+in the DllRegisterServer method is removed. This deceptive registration has no other 
+purpose as only to trick the user into believing that the video renderer can be added 
+as a MF transform.
