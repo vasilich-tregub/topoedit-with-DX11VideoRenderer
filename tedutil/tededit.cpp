@@ -1680,8 +1680,6 @@ HRESULT CTedVideoOutputNode::InitDX11VR(const CAtlStringW& label, HWND hVideoOut
     CComPtr<IMFMediaSink> spDX11VRSink;
 
     IFC(CreateDX11VideoRendererActivate(hVideoOutWindow, &spDX11VRAct));
-    if (!CreateDX11VideoRendererActivate)
-        IFC(hr = HRESULT_FROM_WIN32(GetLastError()));
 
     IFC(spDX11VRAct->ActivateObject(IID_IMFMediaSink, (void**)&spDX11VRSink));
 
@@ -1703,8 +1701,6 @@ HRESULT CTedVideoOutputNode::InitDX11VR(HWND hVideoOutWindow, CTedVideoOutputMem
     CComPtr<IMFMediaSink> spDX11VRSink;
 
     IFC(CreateDX11VideoRendererActivate(hVideoOutWindow, &spDX11VRAct));
-    if (!CreateDX11VideoRendererActivate)
-        IFC(hr = HRESULT_FROM_WIN32(GetLastError()));
 
     IFC(spDX11VRAct->ActivateObject(IID_IMFMediaSink, (void**)&spDX11VRSink));
 
